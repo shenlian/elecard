@@ -1,0 +1,20 @@
+{% extends "registration/widgets/baseback.html" %}
+
+{%block form-content%}
+
+
+<div class="container form-container">
+  {% if account %}
+
+  <h3>恭喜您成功激活账户</h3>
+
+  <h3><a href="{% url auth_login %}">>登录</a></h3>
+
+  {% else %}
+
+  <h3>很抱歉！账户激活失败</h3>
+
+  {% endif %}
+
+</div>
+{% endblock %}

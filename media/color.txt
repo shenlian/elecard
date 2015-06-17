@@ -1,0 +1,14 @@
+background-color: #e6e7e8
+head blue: #00adee
+head height: 40+88px
+bottom tab: 98px
+green:#009f04
+
+add button:#00adee
+delete button:#E83C19
+
+iphone 6: 750px*1334px
+iphone 5: 640px*1136px
+
+ÖÐÎÄ£ºHeiti SC
+Ó¢ÎÄ£ºhelvetica neue LT

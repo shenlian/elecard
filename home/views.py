@@ -3,11 +3,20 @@
 from django.shortcuts import render_to_response,get_object_or_404, render
 from django.template import RequestContext
 
-from normal.models import *
-
+from home.models import ElectricCard
+from home.form import ElectricCardForm
 def index(request):
-    filehistory = VideoSubmisson.objects.all()
+
+    # if request.method == "POST":
+        
+
     data = {
-        'filehistory':filehistory,
+
     }
-    return render(request,'home/home.html',data) 
+    return render(request,'home/electronic_edit.html',data) 
+
+def finish(request):
+    data = {
+
+    }
+    return render(request,'home/electronic_finish.html',data) 

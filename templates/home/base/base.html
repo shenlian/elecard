@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load dajaxice_templatetags %}
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>电子名片</title>
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/default.css">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/electronic_edit.css">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}/css/icomoon.css">
+    {% dajaxice_js_import %}
+  </head>
+  <body >
+    <div id="bodycontent" class="container"> 
+        {% block content %}{% endblock %}
+    </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{{STATIC_URL}}/js/jquery-1.10.2.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{{STATIC_URL}}/js/bootstrap.min.js"></script>
+  </body>
+</html>

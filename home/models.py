@@ -25,7 +25,7 @@ class ElectricCard(models.Model):
     url = models.CharField(max_length=100, blank=True,
                             verbose_name="网址")
     address = models.CharField(max_length=100, blank=True,
-                            verbose_name="社交帐号")
+                            verbose_name="地址")
     social_account = models.CharField(max_length=100, blank=True,
                             verbose_name="社交帐号")
     profile = models.CharField(max_length=100, blank=True,
@@ -33,6 +33,6 @@ class ElectricCard(models.Model):
     custom = models.CharField(max_length=100, blank=True,
                             verbose_name="自定义")
     file_obj = models.FileField(upload_to=datetime.datetime.now().strftime('uploadfile/cardlogo/%m-%Y'),
-                                verbose_name="logo图案")
+                                verbose_name="logo图案",blank=True)
     uploadtime = models.DateTimeField(blank=True, null=True,
                                       verbose_name="创建时间")

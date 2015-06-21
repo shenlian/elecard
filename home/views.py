@@ -44,10 +44,12 @@ def login(request):
     params = request.GET
     echostr = ""
     if params.has_key('echostr'):
+        print "test echostr"
         echostr = request.GET['echostr']
         print echostr
         return HttpResponse(echostr)
     else:
+        print "yidong"
         reply ="""<xml>
         <ToUserName><![CDATA[%s]]></ToUserName>
         <FromUserName><![CDATA[%s]]></FromUserName>
@@ -57,9 +59,12 @@ def login(request):
         <FuncFlag>0</FuncFlag>
         </xml>"""
         if request.raw_post_data:
+            print "youshuju"
             xml = ET.fromstring(request.raw_post_data)
             content = xml.find("Content").text
             fromUserName = xml.find("ToUserName").text
             toUserName = xml.find("FromUserName").text
             postTime = str(int(time.time()))
+            print fromUserName
+            print toUserName
             return HttpResponse(reply % (toUserName, fromUserName, postTime,"输入点命令吧..."))

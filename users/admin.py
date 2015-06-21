@@ -8,6 +8,6 @@ from django.contrib import admin
 class Admin(admin.ModelAdmin):
     search_fields = ['telephone','userid__username']
 
-RegisterClass=(AdminStaffProfile,NormalProfile)
+RegisterClass=(WechatProfile,)
 for temp in RegisterClass:
     admin.site.register(temp, Admin)

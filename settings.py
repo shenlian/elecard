@@ -142,7 +142,7 @@ INSTALLED_APPS = (
  #    'const',
  #    'adminstaff',
  #    'normal',
- #    'users',
+    'users',
 )
 
 #Uploadfile configuration

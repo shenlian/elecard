@@ -11,7 +11,7 @@ from home.models import ElectricCard
 class ElectricCardForm(forms.ModelForm):
     class Meta:
         model = ElectricCard
-        exclude = ('card_id','uploadtime')
+        exclude = ('card_id','uploadtime','wechatid')
         widgets={
             'name':forms.TextInput(attrs={'class':"form-control","id":"ename","placeholder":"姓名"}),
             'company':forms.TextInput(attrs={'class':"form-control","id":"ecompany","placeholder":"公司"}),
@@ -19,10 +19,10 @@ class ElectricCardForm(forms.ModelForm):
             'phone':forms.TextInput(attrs={'class':"form-control","id":"ephone","placeholder":"电话"}),
             'email':forms.TextInput(attrs={'class':"form-control","id":"eemail","placeholder":"邮箱"}),
             'fox':forms.TextInput(attrs={'class':"form-control","id":"efox","placeholder":"传真"}),
-            'url':forms.TextInput(attrs={'class':"form-control","id":"eurl","placeholder":"网址"}),
+            'url':forms.TextInput(attrs={'class':"form-control","id":"eurl","placeholder":"URL"}),
             'address':forms.TextInput(attrs={'class':"form-control","id":"eaddress","placeholder":"地址"}),
             'social_account':forms.TextInput(attrs={'class':"form-control","id":"esocial_account","placeholder":"社交帐号"}),
-            'profile':forms.TextInput(attrs={'class':"form-control","id":"eprofile","placeholder":"个人简介"}),
-            'custom':forms.TextInput(attrs={'class':"form-control","id":"ecustom","placeholder":"自定义"}),
+            'profile':forms.Textarea(attrs={'rows': 8, 'cols': 100,'class':"form-control","id":"eprofile","placeholder":"个人简介"}),
+            'custom':forms.Textarea(attrs={'rows': 8, 'cols': 100,'class':"form-control","id":"ecustom","placeholder":"自定义"}),
             'file_obj':forms.FileInput(attrs={"id":"file_obj","placeholder":"logo","name":"file_obj"}),
         }

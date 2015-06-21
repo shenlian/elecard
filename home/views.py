@@ -3,23 +3,23 @@
 from django.shortcuts import render_to_response,get_object_or_404, render
 from django.template import RequestContext
 from django.core.files.uploadedfile import UploadedFile
+from django.http import HttpResponseRedirect, HttpResponse
+import hashlib, time, re
 
 from home.models import ElectricCard
 from home.form import ElectricCardForm
+from users.models import *
 def index(request):
-    print "hahhahahdsa"
+    wechatid = WechatProfile.objects.all()[0]
     if request.method == "POST":
         eleform = ElectricCardForm(request.POST,request.FILES)
         if eleform.is_valid():
-            name = eleform.cleaned_data["name"]
-            files = eleform.cleaned_data["file_obj"]
-            eleform.save()
-            # f = request.FILES["file_obj"]
-            # wrapper_f = UploadedFile(f)
-            # ele_obj = eleform.save(commit=false)
-            # ele_obj.file_obj = wrapper_f
-            # ele_obj.save()
-            print name
+            #name = eleform.cleaned_data["name"]
+            #files = eleform.cleaned_data["file_obj"]
+            elinfo = eleform.save(commit = False)
+            elinfo.wechatid = wechatid
+            elinfo.save()
+            return HttpResponseRedirect('finish')
         else:
             print eleform.errors
     else:
@@ -38,3 +38,11 @@ def finish(request):
 
 def save_process(request):
     pass
+
+def login(request):
+    params = request.GET
+    echostr = ""
+    if params.has_key('echostr'):
+        echostr = request.GET['echostr']
+        print echostr
+    return HttpResponse(echostr)

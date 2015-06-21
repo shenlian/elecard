@@ -68,3 +68,5 @@ def login(request):
             print fromUserName
             print toUserName
             return HttpResponse(reply % (toUserName, fromUserName, postTime,"输入点命令吧..."))
+        else:
+            return HttpResponse("no reply") 

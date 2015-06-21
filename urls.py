@@ -22,7 +22,7 @@ urlpatterns = patterns('',
     url(r'^confirmaddress/(?P<address_id>.{36})$','home.views.confirmaddress'),
     url(r'^shipway$','home.views.shipway'),
     url(r'^micro/electronic_edit$','home.views.electronic_edit'),
-    url(r'^micro/cardholder$','home.views.cardholder'),
+    url(r'^micro/card_holder$','home.views.card_holder'),
     url(r'^micro/electronic_finish$','home.views.electronic_finish'),
     # url(r'^vedioshare/', include('vedioshare.foo.urls')),
 

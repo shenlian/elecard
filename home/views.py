@@ -196,11 +196,11 @@ def electronic_edit(request):
     }
     return render(request,'microbots/electronic_edit.html',data)
 
-def cardholder(request):
+def card_holder(request):
     data = {
 
     }
-    return render(request,'microbots/cardholder.html',data)
+    return render(request,'microbots/card_holder.html',data)
 
 def electronic_finish(request):
     data = {

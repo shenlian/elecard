@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.core.files.uploadedfile import UploadedFile
 from django.http import HttpResponseRedirect, HttpResponse
 import hashlib, time, re
+from xml.etree import ElementTree as ET
 
 from home.models import ElectricCard
 from home.form import ElectricCardForm
@@ -45,4 +46,20 @@ def login(request):
     if params.has_key('echostr'):
         echostr = request.GET['echostr']
         print echostr
-    return HttpResponse(echostr)
+        return HttpResponse(echostr)
+    else:
+        reply ="""<xml>
+        <ToUserName><![CDATA[%s]]></ToUserName>
+        <FromUserName><![CDATA[%s]]></FromUserName>
+        <CreateTime>%s</CreateTime>
+        <MsgType><![CDATA[text]]></MsgType>
+        <Content><![CDATA[%s]]></Content>
+        <FuncFlag>0</FuncFlag>
+        </xml>"""
+        if request.raw_post_data:
+            xml = ET.fromstring(request.raw_post_data)
+            content = xml.find("Content").text
+            fromUserName = xml.find("ToUserName").text
+            toUserName = xml.find("FromUserName").text
+            postTime = str(int(time.time()))
+            return HttpResponse(reply % (toUserName, fromUserName, postTime,"输入点命令吧..."))

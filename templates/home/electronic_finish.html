@@ -17,21 +17,21 @@
       <div class="content-top col-xs-12">
         <div class="width-70 pull-left">
           <div class="width-40 pull-left div-portrait">
-            <img src="{{STATIC_URL}}/images/ybl.png" class="img-circle portrait" />
+            <img src="{% if ele_obj.pic_head %}{{ele_obj.pic_head.url}}{%endif%}" class="img-circle portrait" />
           </div>
           <div class="width-60 pull-left div-basic-info">
-            <p class="name">杨宝玲</p>
-            <p><span class="company">东南大学</span><span class="title">学生</span></p>
+            <p class="name">{{ele_obj.name}}</p>
+            <p><span class="company">{{ele_obj.company}}</span><span class="title">{{ele_obj.position}}</span></p>
           </div>
         </div>
         <div class="width-30 pull-right">
           <div class="small-thumb pull-right qr-thumb circle">
             <a type="button" data-toggle="modal" data-target="#myModal-qr">
-              <img src="{{STATIC_URL}}/images/microbots.png" />
+              <img src="{% if ele_obj.file_obj %}{{ele_obj.file_obj.url}}{%endif%}"  style="width:25px;height:25px;"/>
             </a>
           </div>
           <div class="small-thumb pull-right">
-            <img src="{{STATIC_URL}}/images/logo.png" class="img-circle" />
+            <img src="{% if ele_obj.qrcode %}{{ele_obj.qrcode.url}}{%endif%}" style="width:37px;height:37px;" class="img-circle" />
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@
         <div class="contact-item-basic">
           <div class="pull-left width-70">
             <p class="item-tag">电话</p>
-            <p class="item-value">152-5041-3229</p>
+            <p class="item-value">{{ele_obj.phone}}</p>
           </div>
           <div class="pull-right width-30 icon-group">
             <div class="pull-right div-icon-link">
@@ -56,7 +56,7 @@
         <div class="contact-item-basic">
           <div class="pull-left width-80">
             <p class="item-tag">邮箱</p>
-            <p class="item-value">yang.bl@qq.com</p>
+            <p class="item-value">{{ele_obj.email}}</p>
           </div>
           <div class="pull-right width-20 icon-group">
             <div class="pull-right div-icon-link">
@@ -68,7 +68,7 @@
         <div class="contact-item-basic">
           <div class="pull-left width-80">
             <p class="item-tag">地址</p>
-            <p class="item-value">XXXXXXXXXXXXXXXXXXXX</p>
+            <p class="item-value">{{ele_obj.address}}</p>
           </div>
           <div class="pull-right width-20 icon-group">
             <div class="pull-right div-icon-link">
@@ -80,7 +80,7 @@
         <div class="contact-item-basic">
           <div class="pull-left width-80">
             <p class="item-tag">博客</p>
-            <p class="item-value">http://blog.sina.com.cn/12345678</p>
+            <p class="item-value">{{ele_obj.url}}</p>
           </div>
           <div class="pull-right width-20 icon-group">
             <div class="pull-right div-icon-link">
@@ -89,12 +89,14 @@
           </div>
           <div class="clear"></div>
         </div>
+        {%comment%}
         <div class="contact-item-basic">
           <div class="width-100">
             <p class="item-tag">个人简介</p>
             <p class="item-value">这里有一点简短的介绍。看看换行的效果怎么样。总之我是介绍介绍~</p>
           </div>
         </div>
+        {% endcomment%}
       </div>
     </div>
   <div class="content-bottom">
@@ -105,7 +107,7 @@
       <a href=""><span class="icon-share icon-button2"></span></a>
     </center>
     <center class="width-60 pull-left block-btn-primary">
-      <a href="">制作纸质名片 &gt;</a>
+      <a href="cardstyle">制作纸质名片 &gt;</a>
     </center>
   </div>
   </div>
@@ -117,7 +119,7 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <div class="width-40 pull-left div-portrait">
-            <img src="{{STATIC_URL}}/images/ybl.png" class="img-circle portrait" />
+            <img src="{% if ele_obj.pic_head %}{{ele_obj.pic_head.url}}{%endif%}" class="img-circle portrait" />
           </div>
           <div class="width-50 pull-left div-basic-info">
             <p class="name">杨宝玲</p>
@@ -126,7 +128,7 @@
           <div class="clear"></div>
         </div>
         <center class="modal-body">
-          <img src="{{STATIC_URL}}/images/qrcode_for_gh_04c5465ab2ce_258.jpg" />
+          <img src="{{STATIC_URL}}" />
         </center>
         <div class="modal-footer">
           <p>扫一扫获得电子名片。长按保存二维码，可打印于名片、工卡等任何地方。</p>

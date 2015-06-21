@@ -1,0 +1,25 @@
+{% extends "home/base/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+      <center style="margin-top:20%;">
+      <div class="form-group form-end-1">
+        <div class="width-70">
+          <input type="text" class="form-control" name="account" placeholder="微信账号">
+        </div>
+      </div>
+      <!-- form-end-1 -->
+      <div class="form-group btn-submit width-70">
+        <button type="submit" class="btn btn-submit width-70">登陆</button>
+      </div>
+      <!-- form-end-5 -->
+        </center>
+    </form>
+
+
+
+{% endblock %}
+

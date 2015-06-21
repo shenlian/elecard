@@ -8,6 +8,7 @@ body {
 /* content-top */
 .content-top {
 	height: 85px;
+	padding-top:10px;
 }
 .div-portrait {
 	max-width: 80px;
@@ -18,6 +19,7 @@ body {
 }
 .portrait {
 	width: 70px;
+
 }
 .name {
 	font-size: 17px;
@@ -76,16 +78,7 @@ body {
 	margin-left: 15px;
 }
 
-/* content-bottom */
-.content-bottom {
-	height: 48px;
-	border: 1px solid #ddd;
-	width: 100%;
-	margin: 50px -15px 0px;
-	position: absolute;
-	bottom: 12px;
-	max-width: 768px;
-}
+
 .block-btn {
 	border-right: 1px solid #ddd;
 	height: 100%;
@@ -99,19 +92,6 @@ body {
 	color: #ccc;
 	padding: 10px;
 	font-size: 10px;
-}
-.block-btn-primary {
-	background-color: #107afd;
-	height: 100%;
-	display: inline-block;
-}
-.block-btn-primary a {
-	width: 100%;
-	height: 100%;
-	display: block;
-	color: #fff;
-	padding: 10px;
-	font-size: 15px;
 }
 
 .icon-button2 {

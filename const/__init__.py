@@ -14,3 +14,6 @@ AUTH_CHOICES = (
     (NORMAL_USER, u"普通用户"),
     (VISITOR_USER, u"游客"),
 )
+
+CARD_STYLE_P1 = "style_p1"
+CARD_STYLE_P2 = "style_p2"

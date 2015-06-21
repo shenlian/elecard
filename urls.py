@@ -9,9 +9,21 @@ dajaxice_autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$','home.views.index'),
-    url(r'^finish$','home.views.finish'),
+    url(r'^$','home.views.login'),
+    url(r'^edit/(?P<wechatid>\w+)$','home.views.edit'),
+    url(r'^finish/(?P<card_id>.{36})$','home.views.finish'),
     url(r'^login$','home.views.login'),
+    url(r'^cardstyle$','home.views.cardstyle'),
+    url(r'^cardedit/(?P<cardstyle_id>\w+)$','home.views.cardedit'),
+    url(r'^cardedit_after/','home.views.cardedit_after'),
+    url(r'^makeOrder/','home.views.makeOrder'),
+    url(r'^shipaddress/','home.views.shipaddress'),
+    url(r'^enteraddress/','home.views.enteraddress'),
+    url(r'^confirmaddress/(?P<address_id>.{36})$','home.views.confirmaddress'),
+    url(r'^shipway$','home.views.shipway'),
+    url(r'^micro/electronic_edit$','home.views.electronic_edit'),
+    url(r'^micro/cardholder$','home.views.cardholder'),
+    url(r'^micro/electronic_finish$','home.views.electronic_finish'),
     # url(r'^vedioshare/', include('vedioshare.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

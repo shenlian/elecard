@@ -5,8 +5,8 @@ import qrcode
 import Image  
 import os  
 
-def gen_ecard(vstr):
-    print vstr
+def gen_ecard(vstr,path):
+    # print vstr
     qr = qrcode.QRCode(
         # version值为1~40的整数,控制二维码的大小,(最小值是1,是个12*12的矩阵)
         # 如果想让程序自动确定,将值设置为 None 并使用 fit 参数即可
@@ -32,20 +32,30 @@ def gen_ecard(vstr):
     img = qr.make_image()
 
     # 将图片存入指定路径文件
-    img.save("/home/sl/download/test.png")
+    img.save(path)
 
-if __name__ == "__main__":
+def get_ecard_path(name,phone,email,address,url,position,card_id):
     begin = "BEGIN:VCARD\n"
-    name = "FN:沈潋\n"
-    phone = "TEL:522292222\n"
-    tel = "TEL;TYPE=cell:15242673389\n"
-    phone_work = "TEL;WORK;VOICE:(111) 555-1212\n"
-    email = "EMAIL:shenlian@baidu.com\n"
-    address = "ADR;TYPE=WORK:;;100 Waters Edge;Baytown;LA;30314;United States of America\n"
-    url = "URL:wwww.baidu.com\n"
+    ename = ephone = eemail = eaddress = eurl = etitle =""
+    if name:
+        ename = "FN:%s\n" % name
+    if phone:
+        ephone = "TEL;TYPE=cell:%s\n" % phone
+    if email: 
+        eemail = "EMAIL:%s\n" % email
+    if address:
+        eaddress = "ADR;TYPE=WORK:;%s\n" % address
+    if url:
+        eurl = "URL:%s\n" % url
+    if position:
+        etitle = "TITLE:%s\n" % position
     end = "END:VCARD\n"
 
-    vstr = begin + name + phone + tel + phone_work + email + address + url + end
-    print vstr
-
-    gen_ecard(vstr)
+    current_root = os.path.dirname(__file__)
+    print current_root
+    vstr = begin + ename + ephone + eemail + eaddress + eurl + etitle +end
+    path = os.path.join("/home/sl/workspace/elecard/media/uploadfile/qrcode", "%s.png" % card_id)
+    gen_ecard(vstr,path)
+    return path
+if __name__ == "__main__":
+    get_ecard_path("杨宝玲","15250413229","","yang.bl@qq.com","http://oriental13.lofter.com","东南大学学生","1")

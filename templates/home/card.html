@@ -129,13 +129,13 @@ function tab(Nav,Num){
            <!--  <div id="cont0"> -->
             <div id="cont0" >
             <div class="templates">
-            <a href="cardedit/{{CARD_STYLE_P1}}" name="cardbtn" value="1">
+            <a href="/cardedit/{{ele_obj.card_id}}" cid={{ele_obj.card_id}} name="cardbtn" value="1">
               <img style="width:150px;height:90px;" src = "{{STATIC_URL}}images/templates/纸质名片模板1-0.png">
             </a>
             </div>
             
             <div class="templates">
-            <a href="cardedit/{{CARD_STYLE_P2}}" name="cardbtn" value="2">
+            <a href="/cardedit/{{ele_obj.card_id}}" cid=ele_obj.card_id name="cardbtn" value="2">
               <img style="width:150px;height:90px;" src = "{{STATIC_URL}}images/templates/纸质名片模板10-0.png">
             </a>
             </div>
@@ -234,6 +234,9 @@ function tab(Nav,Num){
       // alert($(this).attr('value'))
 	  var ss=$(this).attr('value');
 		sessionStorage.cardtype=$(this).attr('value');
+    var cid=$(this).attr('cid');
+    // alert(cid);
+    sessionStorage.cid=$(this).attr('cid');
     });
   </script>
 </body>

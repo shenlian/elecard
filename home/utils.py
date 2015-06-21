@@ -52,7 +52,7 @@ def get_ecard_path(name,phone,email,address,url,position,card_id):
     end = "END:VCARD\n"
 
     current_root = os.path.dirname(__file__)
-    print current_root
+
     vstr = begin + ename + ephone + eemail + eaddress + eurl + etitle +end
     path = os.path.join("/home/sl/workspace/elecard/media/uploadfile/qrcode", "%s.png" % card_id)
     gen_ecard(vstr,path)

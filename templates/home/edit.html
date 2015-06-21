@@ -86,9 +86,9 @@
              
               <div class = "card1-area">
               	<div class="card1-logoicon ">
-                	<div class="icontop"><img src="{{STATIC_URL}}images/input logo.png"></div>
+                	<div class="icontop"><img style="width:53px;height:53px;" src="{% if ele_obj.pic_head %}{{ele_obj.pic_head.url}}{%endif%}"></div>
                		 <div class="underline1 "></div>
-                	<div class ="iconbottom"><img src="{{STATIC_URL}}images/二维码1.png"></div>
+                	<div class ="iconbottom"><img style="width:55px;height:55px;" src="/media/{{ele_obj.qrcode}}"></div>
                 	<!-- <img class="pull-left" src="images/扫一扫.jpg"> -->
               	</div>
               	<div class="card1-content0">
@@ -110,9 +110,9 @@
 			<div name="group" id="card2" value="2"> 
                 <div class = "card2-area">
               		<div class="card2-logoicon pull-right">
-                		<div class="icontop2"><img src="{{STATIC_URL}}images/input logo.png"></div>
+                		<div class="icontop2"><img style="width:53px;height:53px;" src="{% if ele_obj.pic_head %}{{ele_obj.pic_head.url}}{%endif%}"></div>
                		<!--  <div class="underline1 "></div> -->
-                		<div class="icontop2"><img src="{{STATIC_URL}}images/二维码1.png"></div>
+                		<div class="icontop2"><img style="width:55px;height:55px;" src="/media/{{ele_obj.qrcode}}"></div>
                 	<!-- <img class="pull-left" src="images/扫一扫.jpg"> -->
               		</div>
               		<div class="card2-content0">
@@ -275,7 +275,7 @@
 				<div class = "back3-bg1"></div>
 				</div>
                    <div class=" back2-center back3-logo ">
-				   <div><img src="{{STATIC_URL}}images/input logo.png"></div>
+				   <div><img style="width:50px;height:50px;" src="{{ele_obj.file_obj.url}}"></div>
 			       <div><img src="{{STATIC_URL}}images/选填1.png"></div>
 				   </div>
 				   <!-- <div class="dise3 background-yanse"></div> -->
@@ -314,7 +314,7 @@
         </div>
 
         <div class="content-bottom1">
-         <a href="/cardedit_after"><center class="width-100 ">
+         <a href="/cardedit_after/{{ele_obj.card_id}}"><center class="width-100 ">
            完成编辑
         </center></a>
       </div>

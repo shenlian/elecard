@@ -106,8 +106,8 @@ def login(request):
 #         else:
 #             return HttpResponse("no reply") 
 
-def cardstyle(request):
-    ele_obj = ElectricCard.objects.all()[0]
+def cardstyle(request,card_id):
+    ele_obj = ElectricCard.objects.get(card_id = card_id)
     data = {
         "ele_obj":ele_obj,
         "CARD_STYLE_P1":CARD_STYLE_P1,
@@ -115,43 +115,45 @@ def cardstyle(request):
     }
     return render(request,'home/card.html',data) 
 
-def cardedit(request,cardstyle_id):
-    ele_obj = ElectricCard.objects.all()[0]
-    print cardstyle_id
+def cardedit(request,card_id):
+    ele_obj = ElectricCard.objects.get(card_id = card_id)
     data = {
         "ele_obj":ele_obj,
-        "cardstyle_id":cardstyle_id,
         "CARD_STYLE_P1":CARD_STYLE_P1,
         "CARD_STYLE_P2":CARD_STYLE_P2,
     }
     return render(request,'home/edit.html',data) 
 
-def cardedit_after(request):
+def cardedit_after(request,card_id):
     print "cardedit_after"
+    ele_obj = ElectricCard.objects.get(card_id = card_id)
     data = {
-
+        "ele_obj":ele_obj,
+        "CARD_STYLE_P1":CARD_STYLE_P1,
+        "CARD_STYLE_P2":CARD_STYLE_P2,
     }
     return render(request,'home/after_edit.html',data) 
 
-def makeOrder(request):
-    print "makeOrder"
+def makeOrder(request,card_id):
+    ele_obj = ElectricCard.objects.get(card_id = card_id)
     data = {
-
+        "ele_obj":ele_obj,
     }
     return render(request,'home/makeOrder.html',data) 
 
 
-def shipaddress(request):
-    address_list = ShippingAddress.objects.all()
+def shipaddress(request,card_id):
+    ele_obj = ElectricCard.objects.get(card_id = card_id)
+    address_list = ShippingAddress.objects.filter(wechatid = ele_obj.wechatid)
     data = {
         "address_list":address_list,
+        "wechatid":ele_obj.wechatid,
     }
     return render(request,'home/shipAddress.html',data)
 
-def enteraddress(request):
+def enteraddress(request,wechatid):
     addr_id = request.GET.get('p1',"")
     print addr_id
-    wechatid = WechatProfile.objects.all()[0]
     if addr_id:
         print "youid"
         addr = ShippingAddress.objects.get(address_id=addr_id)
@@ -165,19 +167,20 @@ def enteraddress(request):
     else:
         print "wudi"
         addr = ShippingAddress()
-        addr.wechatid = wechatid
+        we_pros = WechatProfile.objects.get(wechatid = wechatid)
+        addr.wechatid = we_pros
         addr.save()
         addr_form = ShippingAddressForm(instance=addr)
     data = {
         "addr_form":addr_form,
         "addr":addr,
+        "wechatid":wechatid,
     }
     return render(request,'home/enterAddress.html',data)
 
-def confirmaddress(request,address_id):
+def confirmaddress(request,card_id):
     print address_id
-    addr = ShippingAddress.objects.get(address_id=address_id)
-    return HttpResponseRedirect('/makeOrder')
+    return HttpResponseRedirect('/makeOrder/'+card_id)
 
 def shipway(request):
     data = {

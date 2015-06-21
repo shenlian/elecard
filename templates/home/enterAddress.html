@@ -86,7 +86,7 @@
     <body>
         <div class="container">
             <div class="row ">
-            <form id="addressForm" method="POST" action="/enteraddress/?p1={{addr.address_id}}" enctype="multipart/form-data">
+            <form id="addressForm" method="POST" action="/enteraddress/{{wechatid}}/{{addr.address_id}}/" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="content col-xs-12">
                     <label for="name" class="control-label width-30 pull-left" value="收货人"  id="label-name">收货人 :</label>

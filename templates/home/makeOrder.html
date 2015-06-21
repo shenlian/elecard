@@ -187,6 +187,7 @@
     </head>
     <body>
         <div class="container ">
+            {% comment %}
             <div class="row">
                 <center><div class="describe-text">名片预览</div></center>
                 <div class="container-preview col-xs-12">
@@ -222,13 +223,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row" onclick="javascript:location.href = 'shipAddress.html';">
+            {% endcomment %}
+            <div class="row" onclick="javascript:location.href = '/shipaddress/{{ele_obj.card_id}}';">
                 <div class="container-address " >
                     <span class="width-10 pull-left icon-text icon-address icon-button2" style="margin-top: 15px ;color:#000000;padding-left:10px;"></span>
                     <div class="width-60 pull-left info-box" id="addressArea">
                     </div>
                     <div class="width-20 pull-right btn block-btn ">
-                        <center><a href="/shipaddress" ><span class="icon-to_right icon-button2 icon-text" id="addressIcon"></span></a></center>
+                        <center><a href="/shipaddress/{{ele_obj.card_id}}" ><span class="icon-to_right icon-button2 icon-text" id="addressIcon"></span></a></center>
                     </div>
                 </div>
             </div>

@@ -95,12 +95,12 @@
     $("#6yuan").bind("click",function(){
         sessionStorage.shipper="普通快递";
         sessionStorage.fee="6";
-        location.href = "/makeOrder"
+        location.href = "/makeOrder/"+sessionStorage.cid;
     })
     $("#10yuan").bind("click",function(){
         sessionStorage.shipper="顺丰快递";
         sessionStorage.fee="10";
-        location.href = "/makeOrder"
+        location.href = "/makeOrder/"+sessionStorage.cid
     })
     </script>
 

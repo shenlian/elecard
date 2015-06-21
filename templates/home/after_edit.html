@@ -11,6 +11,12 @@
         <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/icomoon.css">
         <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/default.css">
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/edit.css">
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/icomoon.css">
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/card.css">
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/default.css">
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/edit.css">
         <!-- ↓ 自定义css，名称最好和html相同 -->
         <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/jasny-bootstrap.min.css">
         <style>
@@ -63,10 +69,10 @@
         font-size: 24px;
         }
         .container-front{
-        background-color:#E5E5E5;
+        /*background-color:#E5E5E5;*/
         }
         .container-back{
-        background-color:#E5E5E5;
+        /*background-color:#E5E5E5;*/
         }
         .container-color{
         height: 70px;
@@ -153,14 +159,95 @@
                 text-align: center;
             }
         </style>
+
     </head>
     <body>
         <div class="container ">
                 <div class="describe-text">正面</div>
                     <div class="card-size">
+       <div class="container-front ">
+            <div  class= "front-padding" name="group" id="card1" value="1">
+             
+              <div class = "card1-area">
+                <div class="card1-logoicon ">
+                    <div class="icontop"><img style="width:53px;height:53px;" src="{% if ele_obj.pic_head %}{{ele_obj.pic_head.url}}{%endif%}"></div>
+                     <div class="underline1 "></div>
+                    <div class ="iconbottom"><img style="width:55px;height:55px;" src="/media/{{ele_obj.qrcode}}"></div>
+                    <!-- <img class="pull-left" src="images/扫一扫.jpg"> -->
+                </div>
+                <div class="card1-content0">
+                <div class="card1-content ">
+                    <div class="card-biaoti biaoti1">{{ele_obj.name}}</div>
+                    <div name="position" class="card-fubiaoti fubiaoti1">{{ele_obj.company}} {{ele_obj.position}}</div>
+                    <ul class="card-info list-unstyled">
+                    <li><span class="icon-phone_paper yanse"></span>{{ele_obj.phone}}</li>
+                    <li><span class="icon-mail_paper yanse"></span> {{ele_obj.email}}</li>
+                    <li><span class="icon-link_paper yanse"></span>{{ele_obj.url}}</li>
+                    <li><span class="icon-address_paper yanse"></span>{{ele_obj.address}}</li>
+                    </ul>
+                </div>
+                </div>
+              </div>
+            
+            </div>
+
+            <div name="group" id="card2" value="2"> 
+                <div class = "card2-area">
+                    <div class="card2-logoicon pull-right">
+                        <div class="icontop2"><img style="width:53px;height:53px;" src="{% if ele_obj.pic_head %}{{ele_obj.pic_head.url}}{%endif%}"></div>
+                    <!--  <div class="underline1 "></div> -->
+                        <div class="icontop2"><img style="width:55px;height:55px;" src="/media/{{ele_obj.qrcode}}"></div>
+                    <!-- <img class="pull-left" src="images/扫一扫.jpg"> -->
+                    </div>
+                    <div class="card2-content0">
+                        <div class="card-biaoti biaoti1 pull-top">{{ele_obj.name}}</div>
+                        <div name="position" class="card-fubiaoti fubiaoti1">{{ele_obj.company}} {{ele_obj.position}}</div>                     
+                    </div>
+
+                 </div>
+                <div class="card2-content">                 
+                    <ul class="card-info list-unstyled">
+                    <li><span class="icon-phone_paper "></span>{{ele_obj.phone}}</li>
+                    <li><span class="icon-mail_paper "></span> {{ele_obj.email}}</li>
+                    <li><span class="icon-link_paper "></span> {{ele_obj.url}}</li>
+                    <li><span class="icon-address_paper "></span>{{ele_obj.address}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
                      </div>
                 <div class="describe-text">反面</div>
                 <div class="card-size ">
+                <div class="container-back ">
+                    <!--  <div  id = "background-yanse" id="back1">
+                           <div class="banner-color center">
+                           <div ><img class="" src="images/input logo.png"></div>
+                            <div ><img src="images/选填2.png"></div>
+                           </div>
+                           
+                    </div> -->
+                <!--    <div id = "background-yanse " id="back2">
+                           <div class="back2-bg back2-center">
+                           <div><img src="images/input logo.png"></div>
+                           <div><img src="images/选填2.png"></div>
+                           </div>
+                    </div> -->
+                    <div  id = "background-yanse" id="back3">
+                        <div class = "pull-left back3-bg0">
+                        <div class = "back3-bg"></div>
+                        <div class = "back3-bg1"></div>
+                        </div>
+                           <div class=" back2-center back3-logo ">
+                           <div><img src="{{STATIC_URL}}images/input logo.png"></div>
+                           <div><img src="{{STATIC_URL}}images/选填1.png"></div>
+                           </div>
+                           <!-- <div class="dise3 background-yanse"></div> -->
+                        <div class = "pull-right back3-bg0">
+                        <div class = "back3-bg"></div>
+                        <div class = "back3-bg1"></div>
+                        </div>
+                    </div>
+        </div>
                 </div>
                 <center>
     <div id="mask">
@@ -179,7 +266,7 @@
                 <a>仅保存</a>
                 </center>
                 <center class="width-30 pull-left block-btn-primary">
-                <a href="/makeOrder">立即制作</a>
+                <a href="/makeOrder/{{ele_obj.card_id}}">立即制作</a>
                 </center>
             </div>
         </div>
@@ -220,5 +307,64 @@
             }, 1000);
         }
         </script>
+   <script type="text/javascript"> 
+    function myfunction(){
+
+    var kk=sessionStorage.cardtype;
+    var ss=parseInt(kk);
+    switch(ss){
+    case 1: $("#card1").css("display","block");break;
+    case 2: $("#card2").css("display","block");break;
+    case 3: $("#card3").css("display","block");break;
+    case 4: $("#card4").css("display","block");break;
+    case 5: $("#card5").css("display","block");break;
+    case 6: $("#card6").css("display","block");break;
+    case 7: $("#card7").css("display","block");break;
+    default: $("#card8").css("display","block");
+    }
+    }
+    </script>
+    <script type="text/javascript"> 
+    $(document).ready(function(){
+    myfunction();
+     $("#black").click(function(){
+    $(".background-yanse").css("background-color",function(){
+    return "black-color"});
+    });
+     $("#blue").click(function(){
+    $(".background-yanse").css("background-color",function(){
+    return "blue-color"});
+    });
+     $("#lightblue").click(function(){
+    $(".background-yanse").css("background-color",function(){
+    return "lightblue-color"});
+    });
+     $("#green").click(function(){
+    $(".background-yanse").css("background-color",function(){
+    return "green-color"});
+    });
+     $("#yellow").click(function(){
+    $(".background-yanse").css("background-color",function(){
+    return "yellow-color"});
+    });
+     $("#orange").click(function(){
+    $(".background-yanse").css("background-color",function(){
+    return "orange-color"});
+    });
+     $("#red").click(function(){
+    $(".background-yanse").css("background-color",function(){
+    return "red-color"});
+    });
+    $("#back3").click(function(){
+    $("#back3").fadeOut(300);
+    });
+     $("#back2").click(function(){
+    $("#back2").fadeOut(300);
+    });
+     $("#back1").click(function(){
+    $("#back3,#back2").fadeIn(300);
+    });
+    });
+    </script>
     </body>
 </html>

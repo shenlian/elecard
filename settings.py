@@ -173,7 +173,7 @@ LOGIN_URL = '/registration/login/'
 ACCOUNT_ACTIVATION_DAYS = 7
 
 TMP_FILE_PATH = join(SETTINGS_ROOT, 'tmp/')
-print TMP_FILE_PATH
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

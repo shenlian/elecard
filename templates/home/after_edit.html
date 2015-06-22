@@ -207,10 +207,10 @@
                  </div>
                 <div class="card2-content">                 
                     <ul class="card-info list-unstyled">
-                    <li><span class="icon-phone_paper "></span>{{ele_obj.phone}}</li>
-                    <li><span class="icon-mail_paper "></span> {{ele_obj.email}}</li>
-                    <li><span class="icon-link_paper "></span> {{ele_obj.url}}</li>
-                    <li><span class="icon-address_paper "></span>{{ele_obj.address}}</li>
+                    <li><span class="icon-phone_paper yanse"></span>{{ele_obj.phone}}</li>
+                    <li><span class="icon-mail_paper yanse"></span> {{ele_obj.email}}</li>
+                    <li><span class="icon-link_paper yanse"></span> {{ele_obj.url}}</li>
+                    <li><span class="icon-address_paper yanse"></span>{{ele_obj.address}}</li>
                     </ul>
                 </div>
             </div>
@@ -234,8 +234,8 @@
                     </div> -->
                     <div  id = "background-yanse" id="back3">
                         <div class = "pull-left back3-bg0">
-                        <div class = "back3-bg"></div>
-                        <div class = "back3-bg1"></div>
+                        <div class = "back3-bg background-yanse"></div>
+                        <div class = "back3-bg1 background-yanse"></div>
                         </div>
                            <div class=" back2-center back3-logo ">
                            <div><img src="{{STATIC_URL}}images/input logo.png"></div>
@@ -243,8 +243,8 @@
                            </div>
                            <!-- <div class="dise3 background-yanse"></div> -->
                         <div class = "pull-right back3-bg0">
-                        <div class = "back3-bg"></div>
-                        <div class = "back3-bg1"></div>
+                        <div class = "back3-bg background-yanse"></div>
+                        <div class = "back3-bg1 background-yanse"></div>
                         </div>
                     </div>
         </div>
@@ -309,7 +309,8 @@
         </script>
    <script type="text/javascript"> 
     function myfunction(){
-
+    $(".background-yanse").css("background-color",sessionStorage.cardcolor);
+    $(".yanse").css("color",sessionStorage.cardcolor);
     var kk=sessionStorage.cardtype;
     var ss=parseInt(kk);
     switch(ss){

@@ -13,67 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/card.css">
     <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/default.css">
     <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/edit.css">
-	<script src="{{STATIC_URL}}js/jquery-1.10.2.js"></script>
-    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
-	<script type="text/javascript"> 
-	function myfunction(){
 
-	var kk=sessionStorage.cardtype;
-	var ss=parseInt(kk);
-	switch(ss){
-	case 1: $("#card1").css("display","block");break;
-	case 2: $("#card2").css("display","block");break;
-	case 3: $("#card3").css("display","block");break;
-	case 4: $("#card4").css("display","block");break;
-	case 5: $("#card5").css("display","block");break;
-	case 6: $("#card6").css("display","block");break;
-	case 7: $("#card7").css("display","block");break;
-	default: $("#card8").css("display","block");
-	}
-	}
-	</script>
-	<script type="text/javascript"> 
-	$(document).ready(function(){
-	myfunction();
-     $("#black").click(function(){
-	$(".background-yanse").css("background-color",function(){
-    return "black-color"});
-	});
-	 $("#blue").click(function(){
-	$(".background-yanse").css("background-color",function(){
-    return "blue-color"});
-	});
-     $("#lightblue").click(function(){
-	$(".background-yanse").css("background-color",function(){
-    return "lightblue-color"});
-	});
-	 $("#green").click(function(){
-	$(".background-yanse").css("background-color",function(){
-    return "green-color"});
-	});
-	 $("#yellow").click(function(){
-	$(".background-yanse").css("background-color",function(){
-    return "yellow-color"});
-	});
-	 $("#orange").click(function(){
-	$(".background-yanse").css("background-color",function(){
-    return "orange-color"});
-	});
-	 $("#red").click(function(){
-	$(".background-yanse").css("background-color",function(){
-    return "red-color"});
-	});
-    $("#back3").click(function(){
-	$("#back3").fadeOut(300);
-	});
-	 $("#back2").click(function(){
-	$("#back2").fadeOut(300);
-	});
-	 $("#back1").click(function(){
-	$("#back3,#back2").fadeIn(300);
-	});
-	});
-	</script>
     <!-- ↓ 自定义css，名称最好和html相同 -->
 
   </head>
@@ -81,56 +21,53 @@
     <div class="container ">
      <!--  <div class="row"> -->
         <div class="describe-text">正面</div>
-        <div class="container-front ">
-            <div  class= "front-padding" name="group" id="card1" value="1">
-             
+        <div class="container-front">
+            <div  class= "front-padding" name="group" id="card1" value="1" >
+              <!--  -->
               <div class = "card1-area">
               	<div class="card1-logoicon ">
-                	<div class="icontop"><img style="width:53px;height:53px;" src="{% if ele_obj.pic_head %}{{ele_obj.pic_head.url}}{%endif%}"></div>
-               		 <div class="underline1 "></div>
-                	<div class ="iconbottom"><img style="width:55px;height:55px;" src="/media/{{ele_obj.qrcode}}"></div>
+                    <div class="icontop"><img style="width:53px;height:53px;" src="{% if ele_obj.pic_head %}{{ele_obj.pic_head.url}}{%endif%}"></div>
+                    <div class ="iconbottom"><img style="width:55px;height:55px;" src="/media/{{ele_obj.qrcode}}"></div>
                 	<!-- <img class="pull-left" src="images/扫一扫.jpg"> -->
               	</div>
               	<div class="card1-content0">
               	<div class="card1-content ">
-                	<div class="card-biaoti biaoti1">{{ele_obj.name}}</div>
-                	<div name="position" class="card-fubiaoti fubiaoti1">{{ele_obj.company}} {{ele_obj.position}}</div>
-                	<ul class="card-info list-unstyled">
-                  	<li><span class="icon-phone_paper yanse"></span>{{ele_obj.phone}}</li>
-					<li><span class="icon-mail_paper yanse"></span> {{ele_obj.email}}</li>
-					<li><span class="icon-link_paper yanse"></span>{{ele_obj.url}}</li>
-					<li><span class="icon-address_paper yanse"></span>{{ele_obj.address}}</li>
-                	</ul>
+                    <div class="card-biaoti biaoti1">{{ele_obj.name}}</div>
+                    <div name="position" class="card-fubiaoti fubiaoti1">{{ele_obj.company}} {{ele_obj.position}}</div>
+                    <ul class="card-info list-unstyled">
+                    <li><span class="icon-phone_paper yanse"></span>{{ele_obj.phone}}</li>
+                    <li><span class="icon-mail_paper yanse"></span> {{ele_obj.email}}</li>
+                    <li><span class="icon-link_paper yanse"></span>{{ele_obj.url}}</li>
+                    <li><span class="icon-address_paper yanse"></span>{{ele_obj.address}}</li>
+                    </ul>
             	</div>
             	</div>
               </div>
-            
+              <!--  -->
             </div>
-
-			<div name="group" id="card2" value="2"> 
-                <div class = "card2-area">
-              		<div class="card2-logoicon pull-right">
+			<div name="group" id="card2" value="2">
+				<div class = "card2-area">
+                 	<div class="card2-logoicon pull-right">
                 		<div class="icontop2"><img style="width:53px;height:53px;" src="{% if ele_obj.pic_head %}{{ele_obj.pic_head.url}}{%endif%}"></div>
                		<!--  <div class="underline1 "></div> -->
                 		<div class="icontop2"><img style="width:55px;height:55px;" src="/media/{{ele_obj.qrcode}}"></div>
                 	<!-- <img class="pull-left" src="images/扫一扫.jpg"> -->
-              		</div>
-              		<div class="card2-content0">
-              			<div class="card-biaoti biaoti1 pull-top">{{ele_obj.name}}</div>
-                        <div name="position" class="card-fubiaoti fubiaoti1">{{ele_obj.company}} {{ele_obj.position}}</div>              		
+              		</div>			   		
+			   		<div class="card2-content0">
+                        <div class="card-biaoti biaoti1 pull-top">{{ele_obj.name}}</div>
+                        <div name="position" class="card-fubiaoti fubiaoti1">{{ele_obj.company}} {{ele_obj.position}}</div>            
             		</div>
-
-             	 </div>
-              	<div class="card2-content">                	
-                	<ul class="card-info list-unstyled">
-                  	<li><span class="icon-phone_paper "></span>{{ele_obj.phone}}</li>
-					<li><span class="icon-mail_paper "></span> {{ele_obj.email}}</li>
-					<li><span class="icon-link_paper "></span> {{ele_obj.url}}</li>
-					<li><span class="icon-address_paper "></span>{{ele_obj.address}}</li>
-                	</ul>
-            	</div>
+				</div>
+				<div class="card2-content background-yanse">
+                    <ul class="card-info list-unstyled">
+                    <li><span class="icon-phone_paper "></span>{{ele_obj.phone}}</li>
+                    <li><span class="icon-mail_paper "></span> {{ele_obj.email}}</li>
+                    <li><span class="icon-link_paper "></span> {{ele_obj.url}}</li>
+                    <li><span class="icon-address_paper "></span>{{ele_obj.address}}</li>
+                    </ul>
+			   </div>
             </div>
-			 <!--   <div class="card-style btn btn-block" name="group" id="card3" value="3">
+<!-- 			   <div name="group" id="card3" value="3" onclick="location.href='electronic_edit.html';">
 			   <div class="width-100">
                <div class="card2-content width-50 pull-left">
 			   <h2 class="card-biaoti biaoti3">姓名</h2>
@@ -151,7 +88,7 @@
 				</ul>
 			   </div>
 			   </div>
-			   <div class="card-style btn btn-block" name="group" id="card4" value="4">
+			   <div name="group" id="card4" value="4" onclick="location.href='electronic_edit.html';">
                <div class="card2-content width-60 pull-left">
 			   <h2 class="card-biaoti biaoti4">姓名</h2>
 			   <p class="card-fubiaoti fubiaoti4">公司 职位</p>
@@ -168,7 +105,7 @@
 			   <img class="pull-right xiaduiqi" src="images/input logo.png">
 			   </div>
                </div>
-			   <div class="card-style btn btn-block" name="group" id="card5" value="5">
+			   <div name="group" id="card5" value="5" onclick="location.href='electronic_edit.html';">
 			   <div class="width-100">
                <div class="card2-content width-50 pull-left">
 			   <h2 class="card-biaoti biaoti3">姓名</h2>
@@ -190,7 +127,7 @@
 				</ul>
 			   </div>
 			   </div>
-			   <div class="card-style btn btn-block" name="group" id="card6" value="6">
+			   <div name="group" id="card6" value="6" onclick="location.href='electronic_edit.html';">
                <div class="card2-content width-60 pull-left">
 			   <h2 class="card-biaoti biaoti4">姓名</h2>
 			   <p class="card-fubiaoti fubiaoti6">公司 职位</p>
@@ -208,7 +145,7 @@
 			   <img class="pull-right xiaduiqi" src="images/input logo.png">
 			   </div>
                </div>
-			   <div class="card-style btn btn-block" name="group" id="card7" value="7">
+			   <div name="group" id="card7" value="7" onclick="location.href='electronic_edit.html';">
                <div class="card2-content width-60 pull-left">
 			   <h2 class="card-biaoti biaoti4">姓名</h2>
 			   <p class="card-fubiaoti fubiaoti4">公司 职位</p>
@@ -227,7 +164,7 @@
 			   <img class="pull-right" src="images/扫一扫.jpg">
 			   </div>
                </div>
-			   <div class="card-style btn btn-block" name="group" id="card8" value="8">
+			   <div  name="group" id="card8" value="8" onclick="location.href='electronic_edit.html';">
 			   <div class="width-100">
                <div class="card2-content width-50 pull-left">
 			   <h2 class="card-biaoti biaoti3">姓名</h2>
@@ -247,32 +184,29 @@
 				<li><span class="icon-address_paper "></span> xx省xx市xx区xx路xx号</li>
 				</ul>
 			   </div>
-			   </div>
- -->
-
+			   </div> -->
 		</div>
         <!-- </div> -->
 
-      <!-- <div class="row"> -->
-      <div class="describe-text">反面 (左右滑动切换样式)</div>
-        <div class="container-back ">
-            <!--  <div  id = "background-yanse" id="back1">
-                   <div class="banner-color center">
-				   <div ><img class="" src="images/input logo.png"></div>
-      				<div ><img src="images/选填2.png"></div>
+          <div class="describe-text">反面 (点击背面切换样式，点击logo编辑logo)</div>
+        	<div class="container-back ">
+<!--              <div class="dingwei" id="back1">
+                   <div class="banner-color background-yanse center">
+				   <div ><img style="width:50px;height:50px;" src="{% if ele_obj.file_obj %}{{ele_obj.file_obj.url}}{% endif %}"></div>
+      				<div ><img src="{{STATIC_URL}}images/选填2.png"></div>
 				   </div>
-				   
+
             </div> -->
-		<!-- 	<div id = "background-yanse " id="back2">
-                   <div class="back2-bg back2-center">
-				   <div><img src="images/input logo.png"></div>
-			       <div><img src="images/选填2.png"></div>
+<!-- 			<div  class="dingwei" id="back2">
+                   <div class="back2-bg  background-yanse back2-center">
+				   <div><img style="width:50px;height:50px;" src="{% if ele_obj.file_obj %}{{ele_obj.file_obj.url}}{% endif %}"></div>
+			       <div><img src="{{STATIC_URL}}images/选填2.png"></div>
 				   </div>
             </div> -->
-			<div  id = "background-yanse" id="back3">
+			<div  class="dingwei" id="back3">
 				<div class = "pull-left back3-bg0">
-				<div class = "back3-bg"></div>
-				<div class = "back3-bg1"></div>
+				<div class = "back3-bg background-yanse"></div>
+				<div class = "back3-bg1 background-yanse"></div>
 				</div>
                    <div class=" back2-center back3-logo ">
 				   <div><img style="width:50px;height:50px;" src="{% if ele_obj.file_obj %}{{ele_obj.file_obj.url}}{% endif %}"></div>
@@ -280,14 +214,64 @@
 				   </div>
 				   <!-- <div class="dise3 background-yanse"></div> -->
 				<div class = "pull-right back3-bg0">
-				<div class = "back3-bg"></div>
-				<div class = "back3-bg1"></div>
+				<div class = "back3-bg background-yanse"></div>
+				<div class = "back3-bg1 background-yanse"></div>
 				</div>
             </div>
 		</div>
-			<!-- </div> -->
 
       <!-- <div class="row"> -->
+     <!--  <div class="describe-text">反面 (点击背面切换样式，点击logo更换logo)</div>
+        <div class="container-back ">
+             <div class="dingwei" id="back1">
+                   <div class="banner-color background-yanse center">
+				   <div ><a href="cardback.html"><img class="" src="images/input logo.png"></a></div>
+      				<div ><img src="images/选填2.png"></div>
+				   </div>
+
+            </div>
+			<div  class="dingwei" id="back2">
+                   <div class="back2-bg  background-yanse back2-center">
+				   <div><a href="cardback.html"><img src="images/input logo.png"></a></div>
+			       <div><img src="images/选填2.png"></div>
+				   </div>
+            </div>
+            <div  id = "dingwei" id="back3">
+				<div class = "pull-left back3-bg0">
+				<div class = "back3-bg background-yanse" ></div>
+				<div class = "back3-bg1 background-yanse"></div>
+				</div>
+                   <div class=" back2-center back3-logo ">
+				   <div><a href="cardback.html"><img src="images/input logo.png"></a></div>
+			       <div><img src="images/选填1.png"></div>
+				   </div>
+				   <!<div class="dise3 background-yanse"></div> -->
+				<!-- <div class = "pull-right back3-bg0">
+				<div class = "back3-bg background-yanse"></div>
+				<div class = "back3-bg1 background-yanse"></div>
+				</div>
+            </div>
+		</div>
+ --> 
+			<!-- <div  class="dingwei" id="back3">
+				<div class = "pull-left back3-bg0">
+				<div class = "back3-bg background-yanse"></div>
+				<div class = "back3-bg1 background-yanse"></div>
+				</div>
+                   <div class=" back2-center back3-logo ">
+				   <div><a href="cardback.html"><img src="images/input logo.png"></a></div>
+			       <div><img src="images/选填1.png"></div>
+				   </div>
+				   <div class="dise3 background-yanse"></div>
+				<div class = "pull-right back3-bg0">
+				<div class = "back3-bg background-yanse"></div>
+				<div class = "back3-bg1 background-yanse"></div>
+				</div>
+            </div>
+		</div> -->
+			<!-- </div>
+
+      <! <div class="row"> -->
         <div class="container-color ">
             <div class="color-block pull-left" id="black-color">
 
@@ -310,8 +294,8 @@
             <div class="color-block pull-left" id="red-color">
 
             </div>
+			</div>
 
-        </div>
 
         <div class="content-bottom1">
          <a href="/cardedit_after/{{ele_obj.card_id}}"><center class="width-100 ">
@@ -323,7 +307,78 @@
 
 
     <!-- ↓jQuery和bootstrap的js效果，请保留，顺序不动 -->
-   
+   <script src="{{STATIC_URL}}js/jquery-1.10.2.js"></script>
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    function myfunction(){
+    var kk=sessionStorage.cardtype;
+    var ss=parseInt(kk);
+    switch(ss){
+    case 1: $("#card1").css("display","block");break;
+    case 2: $("#card2").css("display","block");break;
+    case 3: $("#card3").css("display","block");break;
+    case 4: $("#card4").css("display","block");break;
+    case 5: $("#card5").css("display","block");break;
+    case 6: $("#card6").css("display","block");break;
+    case 7: $("#card7").css("display","block");break;
+    default: $("#card8").css("display","block");
+    }
+    }
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    myfunction();
+     $("#black-color").click(function(){
+    $(".background-yanse").css("background-color","#010101");
+    $(".yanse").css("color","#010101");
+    get_css();
+    });
+     $("#blue-color").click(function(){
+    $(".background-yanse").css("background-color","#2e6fbc")
+    $(".yanse").css("color","#2e6fbc")
+    get_css();
+    });
+     $("#lightblue-color").click(function(){
+    $(".background-yanse").css("background-color","#30a1d4");
+    $(".yanse").css("color","#30a1d4");
+    get_css();
+    });
+     $("#green-color").click(function(){
+    $(".background-yanse").css("background-color","#0a9e50");
+    $(".yanse").css("color","#0a9e50");
+    get_css();
+    });
+     $("#yellow-color").click(function(){
+    $(".background-yanse").css("background-color","#e58905");
+    $(".yanse").css("color","#e58905");
+    get_css();
+    });
+     $("#orange-color").click(function(){
+    $(".background-yanse").css("background-color","#f96115");
+    $(".yanse").css("color","#f96115");
+    get_css();
+    });
+     $("#red-color").click(function(){
+    $(".background-yanse").css("background-color","#8c131b");
+    $(".yanse").css("color","#8c131b");
+    get_css();
+    });
+    $("#back3").click(function(){
+    $("#back3").fadeOut(300);
+    });
+     $("#back2").click(function(){
+    $("#back2").fadeOut(300);
+    });
+     $("#back1").click(function(){
+	// $("#back1").fadeOut(300);
+    $("#back3,#back2").fadeIn(300);
+
+    });
+    function get_css(){
+    sessionStorage.cardcolor = $(".background-yanse").css('background-color')
+    }
+    });
+    </script>
 
   </body>
 </html>

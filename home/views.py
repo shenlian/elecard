@@ -68,7 +68,7 @@ def login(request):
             wechat_obj.save()
         else:
             wechat_obj = we_pros[0]
-        return HttpResponseRedirect('edit/' + wechat_obj.wechatid)
+        return HttpResponseRedirect('/edit/' + wechat_obj.wechatid)
     data = {
 
     }
@@ -122,7 +122,7 @@ def cardedit(request,card_id):
         "CARD_STYLE_P1":CARD_STYLE_P1,
         "CARD_STYLE_P2":CARD_STYLE_P2,
     }
-    return render(request,'home/edit.html',data) 
+    return render(request,'home/edit-fang.html',data) 
 
 def cardedit_after(request,card_id):
     print "cardedit_after"
@@ -147,12 +147,15 @@ def shipaddress(request,card_id):
     address_list = ShippingAddress.objects.filter(wechatid = ele_obj.wechatid)
     data = {
         "address_list":address_list,
-        "wechatid":ele_obj.wechatid,
+        "card_id":card_id,
     }
     return render(request,'home/shipAddress.html',data)
 
-def enteraddress(request,wechatid):
-    addr_id = request.GET.get('p1',"")
+def enteraddress(request):
+    card_id = request.GET.get('p1',"")
+    addr_id = request.GET.get('p2',"")
+    ele_obj = ElectricCard.objects.get(card_id = card_id)
+    wechatid = ele_obj.wechatid
     print addr_id
     if addr_id:
         print "youid"
@@ -161,7 +164,7 @@ def enteraddress(request,wechatid):
             addr_form = ShippingAddressForm(request.POST,instance=addr)
             if addr_form.is_valid():
                 addr_form.save()
-                return HttpResponseRedirect('/shipaddress')
+                return HttpResponseRedirect('/shipaddress/'+ele_obj.card_id)
         else:
             addr_form = ShippingAddressForm(instance=addr)
     else:
@@ -174,12 +177,12 @@ def enteraddress(request,wechatid):
     data = {
         "addr_form":addr_form,
         "addr":addr,
-        "wechatid":wechatid,
+        "card_id":card_id,
     }
     return render(request,'home/enterAddress.html',data)
 
 def confirmaddress(request,card_id):
-    print address_id
+    
     return HttpResponseRedirect('/makeOrder/'+card_id)
 
 def shipway(request):

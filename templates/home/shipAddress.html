@@ -70,7 +70,7 @@
                 <div class="btn-group-vertical width-100" id= "button-group">
                     <!-- 按钮 -->
                     {% for address_obj in address_list %}
-                    <label id="option{{address_obj.address_id}}" value="{{address_obj.address_id}}" name="options" class=" btn btn-block container-address"  style="text-align: left;">
+                    <label id="option{{address_obj.address_id}}" cid ={{card_id}} value="{{address_obj.address_id}}" name="options" class=" btn btn-block container-address"  style="text-align: left;">
                         <div class="width-75 pull-left info-box " >
                             <div class="row col-xs-12">
                                 <div id="text" class="width-30 pull-left text">收件人:</div>
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                         <div class="width-20 pull-right block-btn">
-                            <center><a class="btn block-btn " href="/enteraddress/?p1={{address_obj.address_id}}"><span class="icon-edit icon-block"></span></a></center>
+                            <center><a class="btn block-btn " href="/enteraddress/?p1={{card_id}}&p2={{address_obj.address_id}}"><span class="icon-edit icon-block"></span></a></center>
                         </div>
                     </label>
                     {% endfor %}
@@ -88,7 +88,7 @@
             </div>
             <div class="content-bottom col-xs-12" style="margin-bottom: 10px;">
                 <center class="width-100 block-btn-primary" style="border-radius: 5px;">
-                <a href="/enteraddress/{{wechatid}}" onclick="javascript:sessionStorage.from='1'">添加收货地址</a>
+                <a href="/enteraddress/?p1={{card_id}}" onclick="javascript:sessionStorage.from='1'">添加收货地址</a>
                 </center>
             </div>
         </div>
@@ -101,11 +101,12 @@
     var addressNum = "0"
     $("label[name='options']").bind("click",function(){
         addressid = $(this).attr('value')
+        cid = $(this).attr('cid')
         sessionStorage.name = $("#name"+addressid).html()
         sessionStorage.phone = $("#phone"+addressid).html()
         sessionStorage.address = $("#address"+addressid).html()
         sessionStorage.from = '0'
-        location.href = "/confirmaddress/"+addressid;
+        location.href = "/confirmaddress/"+cid;
     });
     //生成按钮
     function makeBtn (name,phone,address,num) {
